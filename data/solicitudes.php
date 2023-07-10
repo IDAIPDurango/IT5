@@ -127,45 +127,32 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-4">
-			<div class="card">
-				<h2 class="text-center card-header"><?php echo ($total_si + $total_dp); ?></h2>
-				<h3 class="text-center">Solicitudes de Información</h3>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card">
-				<h2 class="text-center card-header"><?php echo $total_si; ?></h2>
-				<h3 class="text-center">Acceso a la Información</h3>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card">
-				<h2 class="text-center card-header"><?php echo $total_dp; ?></h2>
-				<h3 class="text-center">Datos Personales</h3>
-			</div>
-		</div>
-	</div>
-	<br/>
-	<div class="row" class="text-center">
-		<div class="col-md-4">
-			<div class="card">
-				<h2 class="text-center card-header"><?php echo $total_dp; ?></h2>
-				<h3 class="text-center">Atendidas</h3>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card">
-				<h2 class="text-center card-header"><?php echo $total_dp; ?></h2>
-				<h3 class="text-center">No atendidas</h3>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card">
-				<h2 class="text-center card-header"><?php echo $total_dp; ?></h2>
-				<h3 class="text-center">Porcentaje de Atención</h3>
-			</div>
-		</div>
+		<?php
+			$consulta = "SELECT * FROM solicitudes_detalle WHERE anio=$anio AND id_busqueda=$id ORDER BY orden";
+			$stmt = $db_con->prepare($consulta);
+			$stmt->execute();
+
+			$count = $stmt->rowCount();
+			
+			for ($i=0; $i<$count; $i++)
+			{
+				$row = $stmt->fetch(PDO::FETCH_ASSOC);
+				$detalle = $row['detalle'];
+				$valor = $row['valor'];
+
+				$tarjeta = "<div class=\"col-md-4\" style=\"padding: 1em;\">
+							  <div class=\"card text-center\">
+							    <h2 class=\"card-header\">
+                                  $valor
+                                </h2>
+							    <div class=\"card-body\">
+						          <h3 class=\"text-center\">$detalle</h3>
+							    </div>
+							  </div>
+							</div>";
+				echo $tarjeta;
+			}
+		?>
 	</div>
 </div>
 

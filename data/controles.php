@@ -2,7 +2,7 @@
 function imprimir_select_sujetos_obligados($anio)
 {
 	require('conexion.php');
-	$consulta = "SELECT id_busqueda, sujeto_obligado FROM solicitudes WHERE anio = $anio";
+	$consulta = "SELECT DISTINCT id_busqueda, sujeto_obligado FROM solicitudes WHERE anio = $anio";
 	$stmt = $db_con->prepare($consulta);
 	$stmt->execute();
 

@@ -32,19 +32,19 @@
 		<table>
 			<tr>
 				<td style="width:20%">
-					<button class="form-control" onclick="indicador_solicitudes()">Solicitudes</button>
+					<button class="form-control" onclick="indicador_solicitudes()">&nbsp;<br>Solicitudes</button>
 				</td>
 				<td style="width:20%">
-					<button class="form-control" onclick="alert('Hola Mundo 2')">Recursos de revisión</button>
+					<button class="form-control" onclick="indicador_recursos()">Recursos de<br> revisión</button>
 				</td>
 				<td style="width:20%">
-					<button class="form-control" onclick="alert('Hola Mundo 3')">Denuncias a Obligaciones de Transparencia</button>
+					<button class="form-control" onclick="indicador_denuncias()">Denuncias a<br> Obligaciones de Transparencia</button>
 				</td>
 				<td style="width:20%">
-					<button class="form-control" onclick="alert('Hola Mundo 4')">Verificaciones de Obligaciones de Transparencia</button>
+					<button class="form-control" onclick="indicador_verificaciones()">Verificaciones<br> de Obligaciones de Transparencia</button>
 				</td>
 				<td style="width:20%">
-					<button class="form-control" onclick="alert('Hola Mundo 5')">Capacitaciones</button>
+					<button class="form-control" onclick="indicador_capacitaciones()">&nbsp;<br>Capacitaciones</button>
 				</td>
 			</tr>
 		</table>
@@ -56,7 +56,6 @@
 
 	<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-	<script type="text/javascript" src="js/it5.js">
-	</script>
+	<script type="text/javascript" src="js/it5.js"></script>
 </body>
 </html>
